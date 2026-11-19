@@ -1,0 +1,47 @@
+% =====================================================================
+% backmatter/apendice-a.tex
+% PT: Apêndice A. Os apêndices contêm material produzido pelo próprio
+%     aluno que apoia o texto mas o tornaria demasiado longo (tabelas
+%     completas, configurações, questionários, código). Depois de
+%     \appendix em main.tex, cada \chapter passa a ser "Appendix A",
+%     "Appendix B", etc. Para outro apêndice, copie este ficheiro
+%     (ex.: apendice-b.tex) e junte o \input em main.tex.
+% EN: Appendix A. Appendices hold material produced by the student that
+%     supports the text but would make it too long (full tables,
+%     configurations, questionnaires, code). After \appendix in main.tex,
+%     each \chapter becomes "Appendix A", "Appendix B", etc. For another
+%     appendix, copy this file (e.g. apendice-b.tex) and add its \input in
+%     main.tex.
+% =====================================================================
+\chapter{Example Appendix}
+\label{app:example}
+
+% PT: Exemplo em inglês
+% EN: English example
+This appendix shows a table that uses the full text width with
+\texttt{tabularx} and the \texttt{Y} column defined in
+\texttt{config/commands.tex}. Refer to an appendix as any other chapter, for
+example \cref{app:example}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Example of a full-width table with tabularx.}
+  \label{tab:appendix-example}
+  \begin{tabularx}{\textwidth}{l Y}
+    \toprule
+    Parameter & Description \\
+    \midrule
+    Learning rate & Step size of the optimiser; see \cref{sec:method:setup}. \\
+    Batch size    & Number of examples processed before each parameter update. \\
+    Epochs        & Number of complete passes over the training data. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% PT: Exemplo em português
+% EN: Portuguese example
+\begin{otherlanguage}{portuguese}
+Exemplo em português: a Tabela~\ref{tab:appendix-example} ocupa toda a
+largura do texto. No corpo da dissertação, refira-se a este apêndice como
+Apêndice~\ref{app:example}.
+\end{otherlanguage}

@@ -1,0 +1,131 @@
+% =====================================================================
+% chapters/01-introduction.tex
+% PT: Capítulo 1 -- Introdução. Exemplo de: parágrafo de abertura,
+%     secções e subsecções, acrónimos (\gls), citação (\cite), nota de
+%     rodapé, listas itemize/enumerate e referências cruzadas a capítulos
+%     e secções (\cref, \ref).
+% EN: Chapter 1 -- Introduction. Shows: opening paragraph, sections and
+%     subsections, acronyms (\gls), citation (\cite), footnote,
+%     itemize/enumerate lists and cross-references to chapters and
+%     sections (\cref, \ref).
+% =====================================================================
+
+% PT: Cada capítulo tem um \label para poder ser referido noutros sítios.
+%     Prefixos sugeridos: chap: capítulo, sec: secção, fig: figura,
+%     tab: tabela, eq: equação, app: apêndice.
+% EN: Each chapter has a \label so it can be referred to elsewhere.
+%     Suggested prefixes: chap: chapter, sec: section, fig: figure,
+%     tab: table, eq: equation, app: appendix.
+\chapter{Introduction}
+\label{chap:introduction}
+
+% PT: Parágrafo de abertura: em poucas frases, diz ao leitor o que o
+%     capítulo contém, antes da primeira secção.
+% EN: Opening paragraph: in a few sentences, tell the reader what the
+%     chapter contains, before the first section.
+This chapter shows how a chapter is written with this template. In a real
+dissertation, the introduction presents the context of the work, the problem
+it addresses, its objectives and research questions, and the structure of the
+document. Every chapter of the template contains a short English example
+followed by a Portuguese example; together they cover the features you are
+most likely to need. Replace the text and keep the structure.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em inglês
+% EN: English example
+% ---------------------------------------------------------------------
+\section{English example}
+\label{sec:intro:en}
+
+\subsection{Context and Motivation}
+\label{sec:intro:context}
+
+% PT: \gls escreve a sigla por extenso no primeiro uso e abreviada depois.
+% EN: \gls spells out the acronym on first use and abbreviates it afterwards.
+Research in \gls{ai}, and in particular in \gls{ml}, has changed the way
+data are analysed in many fields \cite{LeCun2015}. From the second use
+onwards, only the short form is printed: \gls{ai} and \gls{ml}.
+% PT: Nota de rodapé: o texto vai dentro de \footnote{...}.
+% EN: Footnote: the text goes inside \footnote{...}.
+The context section should explain why the topic matters and who benefits
+from the work.\footnote{Footnotes are numbered per chapter. Use them sparingly,
+for side remarks that would interrupt the main text.}
+
+\subsection{Objectives}
+\label{sec:intro:objectives}
+
+The general objective of a dissertation is usually stated in one sentence and
+then broken down into specific objectives:
+
+% PT: Lista com marcas (itemize).
+% EN: Bulleted list (itemize).
+\begin{itemize}
+  \item review the state of the art on the topic;
+  \item design and implement the proposed solution;
+  \item evaluate the solution against a baseline;
+  \item discuss the results and their limitations.
+\end{itemize}
+
+\subsection{Research Questions}
+\label{sec:intro:questions}
+
+% PT: Lista numerada (enumerate). O enumitem permite rótulos próprios.
+% EN: Numbered list (enumerate). enumitem allows custom labels.
+\begin{enumerate}[label=\textbf{RQ\arabic*.}, leftmargin=*]
+  \item Which methods are currently used to solve the problem?
+  \item How does the proposed solution compare with those methods?
+  \item Under which conditions does the proposed solution fail?
+\end{enumerate}
+
+\subsection{Document Structure}
+\label{sec:intro:structure}
+
+% PT: \cref escreve o tipo e o número ("Chapter 2"). \Cref é a forma
+%     para o início da frase; com a opção capitalise, usada neste
+%     template, as duas dão o mesmo resultado em inglês.
+% EN: \cref writes the type and the number ("Chapter 2"). \Cref is the
+%     form for the start of a sentence; with the capitalise option, used in
+%     this template, both give the same result in English.
+\Cref{chap:review} reviews the related work. \Cref{chap:methodology}
+describes the methodology and \cref{chap:results} reports the results, which
+are discussed in \cref{chap:discussion}. \Cref{chap:conclusion} concludes the
+document, and \cref{app:example} holds supporting material. The objectives
+listed in \cref{sec:intro:objectives} are revisited in the conclusion.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em português
+% EN: Portuguese example
+% ---------------------------------------------------------------------
+\section{Exemplo em português}
+\label{sec:intro:pt}
+
+% PT: O ambiente otherlanguage aplica a hifenização portuguesa ao bloco.
+% EN: The otherlanguage environment applies Portuguese hyphenation to the block.
+\begin{otherlanguage}{portuguese}
+
+\subsection{Enquadramento}
+
+% PT: Sigla portuguesa definida em frontmatter/acronyms.tex.
+% EN: Portuguese acronym defined in frontmatter/acronyms.tex.
+A \gls{ia} tem vindo a ser aplicada em áreas tão diferentes como a
+indústria, a saúde e a educação \cite{Goodfellow2016}. Depois do primeiro
+uso, a sigla aparece só abreviada: \gls{ia}. O enquadramento deve explicar
+a relevância do tema e o problema concreto que a dissertação
+resolve.\footnote{As notas de rodapé funcionam da mesma forma em texto
+português.}
+
+\subsection{Objetivos}
+
+% PT: Em texto português, escreva o nome à mão antes de \ref.
+% EN: In Portuguese text, write the name by hand before \ref.
+Os objetivos específicos seguem a ordem dos capítulos, descrita na
+Secção~\ref{sec:intro:structure}:
+
+\begin{enumerate}
+  \item rever o estado da arte (Capítulo~\ref{chap:review});
+  \item conceber e implementar a solução (Capítulo~\ref{chap:methodology});
+  \item avaliar e discutir os resultados (Capítulos~\ref{chap:results}
+        e~\ref{chap:discussion}).
+\end{enumerate}
+
+\end{otherlanguage}

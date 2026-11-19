@@ -1,0 +1,61 @@
+% =====================================================================
+% bibliography/references.bib
+% PT: Base de dados bibliográfica (formato BibLaTeX, processada pelo
+%     biber). Cada entrada tem um tipo (@article, @book, ...) e uma chave
+%     única, usada no texto com \cite{chave}. Só as entradas citadas
+%     aparecem na lista de referências.
+%     Dica: copie o BibTeX do Google Scholar, do DOI (https://doi.org) ou
+%     da página da editora, e confirme sempre os dados.
+% EN: Bibliography database (BibLaTeX format, processed by biber). Each
+%     entry has a type (@article, @book, ...) and a unique key, used in the
+%     text with \cite{key}. Only cited entries appear in the reference list.
+%     Tip: copy the BibTeX from Google Scholar, from the DOI
+%     (https://doi.org) or from the publisher's page, and always check it.
+% =====================================================================
+
+% PT: Artigo de revista.
+% EN: Journal article.
+@article{LeCun2015,
+  author  = {LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},
+  title   = {Deep learning},
+  journal = {Nature},
+  volume  = {521},
+  number  = {7553},
+  pages   = {436--444},
+  year    = {2015},
+  doi     = {10.1038/nature14539}
+}
+
+% PT: Livro.
+% EN: Book.
+@book{Goodfellow2016,
+  author    = {Goodfellow, Ian and Bengio, Yoshua and Courville, Aaron},
+  title     = {Deep Learning},
+  publisher = {MIT Press},
+  location  = {Cambridge, MA, USA},
+  year      = {2016},
+  isbn      = {978-0-262-03561-3},
+  url       = {https://www.deeplearningbook.org}
+}
+
+% PT: Artigo em atas de conferência.
+% EN: Conference paper.
+@inproceedings{He2016,
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  title     = {Deep Residual Learning for Image Recognition},
+  booktitle = {Proceedings of the {IEEE} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  location  = {Las Vegas, NV, USA},
+  pages     = {770--778},
+  year      = {2016},
+  doi       = {10.1109/CVPR.2016.90}
+}
+
+% PT: Página web. "urldate" é a data em que consultou a página (AAAA-MM-DD).
+% EN: Web page. "urldate" is the date you accessed the page (YYYY-MM-DD).
+@online{CTANbiblatexieee,
+  author       = {Wright, Joseph},
+  title        = {{biblatex-ieee}: {IEEE} style files for {BibLaTeX}},
+  organization = {Comprehensive {\TeX} Archive Network ({CTAN})},
+  url          = {https://ctan.org/pkg/biblatex-ieee},
+  urldate      = {2026-11-19}
+}

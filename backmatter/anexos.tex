@@ -1,0 +1,35 @@
+% =====================================================================
+% backmatter/anexos.tex
+% PT: Anexos. Ao contrário dos apêndices, os anexos contêm documentos que
+%     NÃO foram produzidos pelo aluno (regulamentos, fichas técnicas,
+%     autorizações). Se não tiver anexos, apague a linha
+%     \input{backmatter/anexos} em main.tex.
+% EN: Annexes. Unlike appendices, annexes hold documents that were NOT
+%     produced by the student (regulations, data sheets, authorisations).
+%     If you have no annexes, delete the line \input{backmatter/anexos}
+%     in main.tex.
+% =====================================================================
+\chapter{Annexes}
+\label{app:annexes}
+
+% PT: Exemplo em inglês
+% EN: English example
+Annexes are documents written by others and included for reference. A PDF
+document can be inserted page by page with \texttt{\textbackslash
+includepdf} from the \texttt{pdfpages} package, as in the commented example
+in this file.
+
+% PT: Exemplo em português
+% EN: Portuguese example
+\begin{otherlanguage}{portuguese}
+Exemplo em português: os anexos são documentos de terceiros, incluídos para
+consulta. Para inserir um PDF, coloque-o na pasta \texttt{figures/} (ou numa
+pasta \texttt{annexes/}) e descomente a linha \texttt{\textbackslash
+includepdf} deste ficheiro.
+\end{otherlanguage}
+
+% PT: Inserir todas as páginas de um PDF, à escala da página.
+%     pages=- : todas as páginas; pages={1-3} : só as páginas 1 a 3.
+% EN: Insert every page of a PDF, scaled to the page.
+%     pages=- : all pages; pages={1-3} : only pages 1 to 3.
+% \includepdf[pages=-, scale=0.9, pagecommand={}]{annexes/document.pdf}

@@ -1,0 +1,119 @@
+% =====================================================================
+% frontmatter/cover.tex
+% PT: Capa (página 1 do modelo ESTSetúbal/UNIPS). Reproduz a primeira
+%     página de TrabalhoUNIPS_TecnologiaSetubal_Mestrado_definitiva.docx.
+%     NÃO precisa de editar este ficheiro: o texto vem de
+%     config/metadata.tex. NÃO altere as posições \put nem as medidas em
+%     bp, porque copiam o modelo oficial do Word.
+% EN: Cover (page 1 of the ESTSetúbal/UNIPS model). Reproduces the first
+%     page of TrabalhoUNIPS_TecnologiaSetubal_Mestrado_definitiva.docx.
+%     You do NOT need to edit this file: the text comes from
+%     config/metadata.tex. Do NOT change the \put positions or the bp
+%     measurements, because they copy the official Word model.
+%
+% PT: Como funciona
+%     - Página A4 = 595 x 842 bp (1 bp = 1 ponto do Word = 1/72 pol.).
+%     - Cada bloco é colocado com \put(x,-y) em relação ao canto superior
+%       esquerdo da página: x para a direita, y para baixo (daí o sinal -).
+%     - Fonte Arial (Helvetica, com as mesmas métricas), sem hifenização.
+%     - No Word, cada caixa de texto tem margem interna de 7.2 bp à
+%       esquerda e 3.6 bp no topo; por isso cada \put fica em
+%       x = caixa + 7.2 e y = topo da caixa + 3.6 + ascendente da Arial,
+%       ou seja, na linha de base da primeira linha do bloco.
+% EN: How it works
+%     - A4 page = 595 x 842 bp (1 bp = 1 Word point = 1/72 in).
+%     - Each block is placed with \put(x,-y) relative to the top-left
+%       corner of the page: x to the right, y downwards (hence the - sign).
+%     - Arial font (Helvetica, with the same metrics), no hyphenation.
+%     - In Word each text box has an inner margin of 7.2 bp on the left and
+%       3.6 bp at the top; so each \put sits at x = box + 7.2 and
+%       y = box top + 3.6 + Arial ascender, i.e. on the baseline of the
+%       first line of the block.
+%
+% PT: Medidas das caixas do Word (bp, a partir do canto superior esquerdo)
+% EN: Word text-box measurements (bp, from the top-left corner)
+%   logotipo / logo        x = 191.05, topo/top y = 67, largura/width 255.4
+%   autor / author         x = 85.15,  y = 263.4, largura/width 160.0, 16 pt, à direita/right-aligned
+%   título / title         x = 249.95, y = 263.0, largura/width 290.1, 16 pt negrito/bold
+%   grau / degree          x = 249.95, y = 460.0, largura/width 275.1, 12 pt
+%   linha / line           centro/centre x = 250.65, y = 263.5 -> 773.7, 3.75 pt, #CAF4FF
+%   orientadores / supervisors  x = 250.25, y = 582.2, largura/width 275.1, 12 pt
+%   data / date            x = 250.25, y = 735.5, 10 pt
+%
+% PT: Título longo
+%     O título (16 pt, entrelinha 18.4 bp) começa na linha de base
+%     y = 278.6 e o bloco do grau começa em y = 472.0. Cabem no máximo
+%     10 linhas de título (cerca de 20 a 28 caracteres em maiúsculas por
+%     linha, ou seja, uns 220 caracteres no total); a 11.ª linha sobrepõe-se
+%     ao bloco do grau. Para um aspeto equilibrado, mantenha o título até
+%     8 linhas. O subtítulo conta para estas linhas. Se não couber,
+%     encurte o título; pode também forçar as quebras de linha com \\ no
+%     próprio \thesistitle. A folha do júri aceita até 12 linhas, por isso
+%     o limite é dado pela capa.
+% EN: Long title
+%     The title (16 pt, 18.4 bp leading) starts on baseline y = 278.6 and
+%     the degree block starts at y = 472.0. At most 10 title lines fit
+%     (roughly 20 to 28 capital letters per line, about 220 characters in
+%     total); an 11th line overlaps the degree block. For a balanced look,
+%     keep the title within 8 lines. The subtitle counts towards these
+%     lines. If it does not fit, shorten the title; you can also force
+%     line breaks with \\ inside \thesistitle. The jury page accepts up to
+%     12 lines, so the cover sets the limit.
+% =====================================================================
+\begin{titlepage}
+% PT: Os blocos são desenhados por cima da página, no momento em que ela é
+%     enviada para o PDF, com coordenadas absolutas.
+% EN: The blocks are drawn on top of the page, when it is shipped out to
+%     the PDF, with absolute coordinates.
+\AddToHookNext{shipout/foreground}{%
+  \setlength{\unitlength}{1bp}%
+  \linespread{1}\fontfamily{phv}\fontseries{m}\fontshape{n}\selectfont
+  \hyphenpenalty=10000 \exhyphenpenalty=10000
+  % -------------------------------------------------------------------
+  % PT: Logotipo da ESTSetúbal/UNIPS (figures/estsetubal_logo.pdf), centrado no topo.
+  % EN: ESTSetúbal/UNIPS logo (figures/estsetubal_logo.pdf), centred at the top.
+  \put(191.05,-67){\makebox(0,0)[lt]{\includegraphics[width=255.4bp]{figures/estsetubal_logo.pdf}}}%
+  % -------------------------------------------------------------------
+  % PT: Autor: coluna da esquerda, 16 pt regular, maiúsculas, alinhado à direita.
+  % EN: Author: left column, 16 pt regular, capitals, right-aligned.
+  \put(92.35,-279.0){\parbox[t]{145.6bp}{\raggedleft\fontsize{16bp}{18.4bp}\selectfont
+    \MakeUppercase{\authorname}}}%
+  % -------------------------------------------------------------------
+  % PT: Título (e subtítulo opcional): coluna da direita, 16 pt negrito, maiúsculas.
+  % EN: Title (and optional subtitle): right column, 16 pt bold, capitals.
+  \put(257.15,-278.6){\parbox[t]{275.7bp}{\raggedright\fontsize{16bp}{18.4bp}\selectfont\bfseries
+    \MakeUppercase{\thesistitle}\ifdefempty{\thesissubtitle}{}{\MakeUppercase{: \thesissubtitle}}}}%
+  % -------------------------------------------------------------------
+  % PT: Grau: duas linhas, 12 pt regular (\coverdegree e \coursefield).
+  % EN: Degree: two lines, 12 pt regular (\coverdegree and \coursefield).
+  \put(257.15,-472.0){\parbox[t]{260.7bp}{\raggedright\fontsize{12bp}{13.8bp}\selectfont
+    \coverdegree\par\coursefield}}%
+  % -------------------------------------------------------------------
+  % PT: Linha azul vertical #CAF4FF entre as duas colunas (no Word é uma
+  %     linha de 510.2 pt rodada 270 graus).
+  % EN: Vertical blue line #CAF4FF between the two columns (in Word it is a
+  %     510.2 pt line rotated 270 degrees).
+  \put(248.775,-773.7){\textcolor[HTML]{CAF4FF}{\rule{3.75bp}{510.2bp}}}%
+  % -------------------------------------------------------------------
+  % PT: Orientador e coorientador, 12 pt. O bloco COORIENTADOR só aparece
+  %     se \cosupervisorname não estiver vazio.
+  % EN: Supervisor and co-supervisor, 12 pt. The COORIENTADOR block only
+  %     appears if \cosupervisorname is not empty.
+  \put(257.45,-594.2){\parbox[t]{260.7bp}{\raggedright\fontsize{12bp}{13.8bp}\selectfont
+    \setlength{\parskip}{2bp}\setlength{\parindent}{0pt}%
+    {\bfseries \supervisorlabel\par}
+    \supervisorname\par
+    \ifdefempty{\cosupervisorname}{}{%
+      \vspace{6bp}
+      {\bfseries \cosupervisorlabel\par}
+      \cosupervisorname\par}}}%
+  % -------------------------------------------------------------------
+  % PT: Data da realização da prova (mês e ano), 10 pt.
+  % EN: Date of the public defence (month and year), 10 pt.
+  \put(257.45,-747.4){\parbox[t]{230.5bp}{\raggedright\fontsize{10bp}{13.2bp}\selectfont
+    \defencemonth\ de \defenceyear}}%
+}
+% PT: Página vazia: o conteúdo é todo desenhado pelo bloco acima.
+% EN: Empty page: all content is drawn by the block above.
+\null
+\end{titlepage}

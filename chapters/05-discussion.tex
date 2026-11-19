@@ -1,0 +1,76 @@
+% =====================================================================
+% chapters/05-discussion.tex
+% PT: Capítulo 5 -- Discussão. Exemplo de: referências cruzadas entre
+%     capítulos (várias de uma vez), variantes dos acrónimos (\acrshort,
+%     \acrlong, \acrfull), lista itemize e nota de rodapé.
+% EN: Chapter 5 -- Discussion. Shows: cross-references between chapters
+%     (several at once), acronym variants (\acrshort, \acrlong, \acrfull),
+%     an itemize list and a footnote.
+% =====================================================================
+\chapter{Discussion}
+\label{chap:discussion}
+
+% PT: Parágrafo de abertura do capítulo.
+% EN: Chapter opening paragraph.
+This chapter shows how to refer back to earlier material. In a real
+dissertation, the discussion interprets the results, relates them to the
+literature, answers the research questions and states the limitations of the
+work.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em inglês
+% EN: English example
+% ---------------------------------------------------------------------
+\section{English example}
+\label{sec:discussion:en}
+
+\subsection{Interpretation of the Results}
+\label{sec:discussion:interpretation}
+
+% PT: \cref aceita várias etiquetas separadas por vírgulas e agrupa-as:
+%     \cref{fig:a,fig:b} -> "Figures 3.1 and 4.1".
+% EN: \cref accepts several labels separated by commas and groups them:
+%     \cref{fig:a,fig:b} -> "Figures 3.1 and 4.1".
+The results in \cref{tab:results} follow the pipeline of \cref{fig:pipeline},
+and \cref{fig:pipeline,fig:example-file} can be cited together. The loss in
+\cref{eq:loss} was the only training objective, as described in
+\cref{sec:method:model}. These references stay correct when chapters,
+figures or tables are added or reordered, because the numbers are generated
+by \LaTeX.
+
+% PT: Variantes dos acrónimos.
+% EN: Acronym variants.
+The acronym commands can also be used directly: \acrshort{cnn} prints the
+short form, \acrlong{cnn} prints the long form, and \acrfull{ml} always
+prints both, regardless of earlier uses.
+
+\subsection{Limitations}
+\label{sec:discussion:limitations}
+
+Every study has limitations, and stating them makes the conclusions more
+credible. Common limitations include:
+
+\begin{itemize}
+  \item the size and representativeness of the data;
+  \item the number of methods and settings compared;
+  \item the hardware and time available for the experiments.\footnote{State
+    the limitations that actually affect your conclusions, not a generic
+    list.}
+\end{itemize}
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em português
+% EN: Portuguese example
+% ---------------------------------------------------------------------
+\section{Exemplo em português}
+\label{sec:discussion:pt}
+
+\begin{otherlanguage}{portuguese}
+
+Os resultados da Tabela~\ref{tab:results} devem ser interpretados à luz das
+questões de investigação da Secção~\ref{sec:intro:questions} e comparados
+com os trabalhos apresentados no Capítulo~\ref{chap:review}. A discussão
+deve explicar porque é que os resultados são os que são, e não apenas
+repeti-los.
+
+\end{otherlanguage}

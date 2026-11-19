@@ -1,0 +1,220 @@
+% =====================================================================
+% config/packages.tex
+% PT: Pacotes e formatação global (fontes, margens, espaçamento, títulos,
+%     legendas, bibliografia e acrónimos). Normalmente não precisa de
+%     alterar este ficheiro.
+% EN: Packages and global formatting (fonts, margins, spacing, headings,
+%     captions, bibliography and acronyms). You normally do not need to
+%     change this file.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Codificação e idioma / Encoding and language
+% ---------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% PT: A última língua da lista é a língua principal do documento.
+%     Para escrever a dissertação em português, troque para
+%     \usepackage[english,portuguese]{babel}.
+% EN: The last language in the list is the main language of the document.
+%     To write the dissertation in Portuguese, change it to
+%     \usepackage[english,portuguese]{babel}.
+\usepackage[portuguese,english]{babel}
+
+% ---------------------------------------------------------------------
+% Fontes / Fonts
+% ---------------------------------------------------------------------
+% PT: O modelo ESTSetúbal/UNIPS usa Times New Roman no texto e Arial nos
+%     títulos. O newtx dá a Times; se não estiver instalado, usa-se o
+%     mathptmx. O helvet dá a Helvetica, com as mesmas métricas da Arial.
+% EN: The ESTSetúbal/UNIPS model uses Times New Roman for body text and
+%     Arial for headings. newtx provides Times; if it is not installed,
+%     mathptmx is used instead. helvet provides Helvetica, which has the
+%     same metrics as Arial.
+% PT: O amsmath e o amsthm têm de ser carregados antes do newtxmath, e o
+%     amssymb só com o mathptmx (o newtxmath já tem esses símbolos e dá
+%     erro "Command \Bbbk already defined" se os dois forem carregados).
+% EN: amsmath and amsthm must be loaded before newtxmath, and amssymb only
+%     with mathptmx (newtxmath already has those symbols and fails with
+%     "Command \Bbbk already defined" if both are loaded).
+\usepackage{amsmath,amsthm}
+\IfFileExists{newtxtext.sty}
+  {\usepackage{newtxtext,newtxmath}}
+  {\usepackage{mathptmx}\usepackage{amssymb}}
+\usepackage{helvet}
+
+% ---------------------------------------------------------------------
+% Página e espaçamento / Page layout and spacing
+% ---------------------------------------------------------------------
+% PT: A4 com margens de 3 cm e entrelinha de 1,5.
+% EN: A4 with 3 cm margins and 1.5 line spacing.
+\usepackage[a4paper,margin=3cm]{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{csquotes}
+% PT: Indenta também o primeiro parágrafo de cada secção.
+% EN: Also indent the first paragraph of each section.
+\usepackage{indentfirst}
+
+% ---------------------------------------------------------------------
+% Figuras, tabelas e listas / Figures, tables and lists
+% ---------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+% PT: TikZ desenha diagramas diretamente em LaTeX (ver capítulo 3).
+% EN: TikZ draws diagrams directly in LaTeX (see chapter 3).
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+% ---------------------------------------------------------------------
+% Matemática / Mathematics
+% ---------------------------------------------------------------------
+% PT: amsmath, amsthm e símbolos AMS já foram carregados com as fontes.
+% EN: amsmath, amsthm and AMS symbols were already loaded with the fonts.
+\usepackage{mathtools}
+
+% ---------------------------------------------------------------------
+% URLs, ligações e referências cruzadas / URLs, links and cross-references
+% ---------------------------------------------------------------------
+% PT: O xurl não é carregado de propósito: permite quebras após qualquer
+%     carácter e parte os DOI a meio de um número. As quebras de URL na
+%     bibliografia são afinadas mais abaixo.
+% EN: xurl is deliberately not loaded: it allows a break after any
+%     character and splits DOIs in the middle of a number. URL breaks in
+%     the bibliography are tuned further below.
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
+% PT: \cref{...} escreve automaticamente "Figure 1.1", "Table 2.3", etc.
+%     (com maiúscula, por causa da opção capitalise).
+%     O cleveref não tem nomes em português europeu; em texto português
+%     escreva o nome à mão: Figura~\ref{...}.
+% EN: \cref{...} automatically writes "Figure 1.1", "Table 2.3", etc.
+%     (capitalised, because of the capitalise option).
+%     cleveref has no European Portuguese names; in Portuguese text write
+%     the name by hand: Figura~\ref{...}.
+\usepackage[nameinlink,noabbrev,capitalise]{cleveref}
+
+% ---------------------------------------------------------------------
+% Acrónimos / Acronyms
+% ---------------------------------------------------------------------
+% PT: Os acrónimos são definidos em frontmatter/acronyms.tex. A lista só
+%     aparece depois de correr o makeglossaries (o latexmk fá-lo sozinho).
+% EN: Acronyms are defined in frontmatter/acronyms.tex. The list only
+%     appears after running makeglossaries (latexmk does it for you).
+% PT: "nomain": só há lista de acrónimos, sem glossário de termos. Para
+%     ter também um glossário, retire "nomain", defina os termos com
+%     \newglossaryentry e junte \printglossary em main.tex.
+% EN: "nomain": there is only an acronym list, no glossary of terms. To
+%     also have a glossary, remove "nomain", define the terms with
+%     \newglossaryentry and add \printglossary to main.tex.
+\usepackage[acronym,nomain,toc]{glossaries}
+\makeglossaries
+
+% ---------------------------------------------------------------------
+% Bibliografia / Bibliography
+% ---------------------------------------------------------------------
+% PT: Estilo IEEE (numérico, pela ordem de citação) processado pelo biber.
+%     ATENÇÃO: o estilo "ieee" vem do pacote biblatex-ieee, que pode não
+%     estar instalado (erro "File 'ieee.bbx' not found"). Instale-o com
+%         tlmgr install biblatex-ieee
+%     (MiKTeX: instale "biblatex-ieee" no MiKTeX Console) ou use a linha
+%     alternativa comentada, que só precisa do biblatex.
+% EN: IEEE style (numeric, in order of citation) processed by biber.
+%     WARNING: the "ieee" style comes from the biblatex-ieee package, which
+%     may not be installed (error "File 'ieee.bbx' not found"). Install it
+%     with
+%         tlmgr install biblatex-ieee
+%     (MiKTeX: install "biblatex-ieee" in the MiKTeX Console) or use the
+%     commented alternative line, which only needs biblatex.
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+% \usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+
+% PT: Quebras de URL e DOI na bibliografia: só parte um número em último caso.
+% EN: URL and DOI line breaks in the bibliography: break inside a number
+%     only as a last resort.
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\setcounter{biburlnumpenalty}{9000}
+\appto{\biburlsetup}{\Urlmuskip=0mu plus 1mu\relax}
+\AtBeginBibliography{\emergencystretch=4em\relax}
+
+% ---------------------------------------------------------------------
+% Espaçamento e numeração / Spacing and numbering
+% ---------------------------------------------------------------------
+\onehalfspacing
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{1.2em}
+
+% PT: O índice mostra até às subsecções; a numeração vai até às subsubsecções.
+% EN: The table of contents goes down to subsections; numbering goes down
+%     to subsubsections.
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+\captionsetup{font=small,labelfont=bf}
+
+% PT: Números em formato inglês (1,234.5). Em texto português use
+%     \sisetup{output-decimal-marker={,}, group-separator={\,}}
+%     (ver o exemplo no capítulo 4).
+% EN: Numbers in English format (1,234.5). In Portuguese text use
+%     \sisetup{output-decimal-marker={,}, group-separator={\,}}
+%     (see the example in chapter 4).
+\sisetup{
+  group-separator = {,},
+  output-decimal-marker = {.}
+}
+
+% ---------------------------------------------------------------------
+% Títulos (Arial/Helvetica, negrito) / Headings (Arial/Helvetica, bold)
+% ---------------------------------------------------------------------
+% PT: Títulos em \sffamily (Helvetica = Arial), alinhados à esquerda sem
+%     hifenização, como no modelo ESTSetúbal/UNIPS.
+% EN: Headings in \sffamily (Helvetica = Arial), ragged right without
+%     hyphenation, as in the ESTSetúbal/UNIPS model.
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\huge\bfseries}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+\titleformat*{\section}{\normalfont\raggedright\sffamily\Large\bfseries}
+\titleformat*{\subsection}{\normalfont\raggedright\sffamily\large\bfseries}
+\titleformat*{\subsubsection}{\normalfont\raggedright\sffamily\normalsize\bfseries}
+\titleformat*{\paragraph}{\normalfont\raggedright\sffamily\normalsize\bfseries}
+
+% ---------------------------------------------------------------------
+% Nomes das listas / Names of the lists
+% ---------------------------------------------------------------------
+% PT: Nomes usados quando a língua principal é o inglês.
+% EN: Names used when the main language is English.
+\addto\captionsenglish{%
+  \renewcommand{\contentsname}{Table of Contents}%
+  \renewcommand{\listfigurename}{List of Figures}%
+  \renewcommand{\listtablename}{List of Tables}%
+  \renewcommand{\bibname}{References}%
+  \renewcommand{\refname}{References}%
+}
+% PT: Se a língua principal for o português, descomente estas linhas.
+% EN: If the main language is Portuguese, uncomment these lines.
+% \addto\captionsportuguese{%
+%   \renewcommand{\contentsname}{Índice}%
+%   \renewcommand{\listfigurename}{Índice de Figuras}%
+%   \renewcommand{\listtablename}{Índice de Tabelas}%
+%   \renewcommand{\bibname}{Referências Bibliográficas}%
+%   \renewcommand{\refname}{Referências Bibliográficas}%
+% }

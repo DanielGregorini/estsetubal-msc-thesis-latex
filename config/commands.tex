@@ -1,0 +1,43 @@
+% =====================================================================
+% config/commands.tex
+% PT: Comandos auxiliares próprios. Acrescente aqui os seus comandos
+%     (\newcommand) para os manter num só sítio.
+% EN: Helper commands of your own. Add your commands (\newcommand) here
+%     to keep them in one place.
+% =====================================================================
+
+% PT: Caixa vazia para marcar uma figura que ainda não existe.
+%     Uso: \placeholderfigure{<largura>}{<altura>}
+%     Ex.: \placeholderfigure{0.8\textwidth}{5cm}
+% EN: Empty box to mark a figure that does not exist yet.
+%     Usage: \placeholderfigure{<width>}{<height>}
+%     E.g.: \placeholderfigure{0.8\textwidth}{5cm}
+\newcommand{\placeholderfigure}[2]{%
+  \begin{center}
+    \fbox{\parbox[c][#2][c]{#1}{\centering Figure placeholder / Figura provisória\\[0.5em]
+    Replace with the final image. / Substituir pela imagem final.}}
+  \end{center}
+}
+
+% PT: Nota de trabalho a azul, para lembretes durante a escrita.
+%     Apague todas antes da entrega. Uso: \todosection{texto}
+% EN: Work note in blue, for reminders while writing.
+%     Remove them all before submission. Usage: \todosection{text}
+\newcommand{\todosection}[1]{%
+  \begin{quote}
+    \color{blue!70!black}\textbf{TODO:} #1
+  \end{quote}
+}
+
+% PT: Questões de investigação e objetivos numerados.
+%     Uso: \researchq{1}{Texto da questão}  ->  RQ1. Texto da questão
+% EN: Numbered research questions and objectives.
+%     Usage: \researchq{1}{Question text}  ->  RQ1. Question text
+\newcommand{\researchq}[2]{\textbf{RQ#1.} #2}
+\newcommand{\researchobj}[2]{\textbf{OBJ#1.} #2}
+
+% PT: Coluna Y para tabularx: ocupa a largura disponível e alinha à esquerda.
+%     Uso: \begin{tabularx}{\textwidth}{lY} ... \end{tabularx}
+% EN: Y column for tabularx: fills the available width, left-aligned.
+%     Usage: \begin{tabularx}{\textwidth}{lY} ... \end{tabularx}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}

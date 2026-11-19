@@ -1,0 +1,118 @@
+% =====================================================================
+% chapters/03-methodology.tex
+% PT: Capítulo 3 -- Metodologia. Exemplo de: figura desenhada com TikZ
+%     (sem ficheiro de imagem), equação numerada, números e unidades com
+%     siunitx e referências a figura, equação e secção.
+% EN: Chapter 3 -- Methodology. Shows: a figure drawn with TikZ (no image
+%     file needed), a numbered equation, numbers and units with siunitx,
+%     and references to a figure, an equation and a section.
+% =====================================================================
+\chapter{Methodology}
+\label{chap:methodology}
+
+% PT: Parágrafo de abertura do capítulo.
+% EN: Chapter opening paragraph.
+This chapter shows how to include a diagram and an equation. In a real
+dissertation, the methodology describes what was done and how, in enough
+detail for someone else to repeat the work: the overall approach, the data,
+the methods and the experimental setup.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em inglês
+% EN: English example
+% ---------------------------------------------------------------------
+\section{English example}
+\label{sec:method:en}
+
+\subsection{Overview}
+\label{sec:method:overview}
+
+% PT: Figura TikZ. [htbp] deixa o LaTeX escolher o melhor sítio:
+%     h = aqui, t = topo, b = fundo, p = página própria.
+%     Não use \gls dentro de \caption (use \acrshort), porque a legenda
+%     também é escrita na lista de figuras.
+% EN: TikZ figure. [htbp] lets LaTeX choose the best place:
+%     h = here, t = top, b = bottom, p = separate page.
+%     Do not use \gls inside \caption (use \acrshort), because the caption
+%     is also written to the list of figures.
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      node distance=8mm,
+      stage/.style={draw, rounded corners, fill=blue!8, align=center,
+                    minimum height=12mm, text width=24mm, font=\small\sffamily},
+      arrow/.style={-{Stealth[length=2.5mm]}, thick}
+    ]
+    \node[stage] (data) {Data\\collection};
+    \node[stage, right=of data] (prep) {Pre-\\processing};
+    \node[stage, right=of prep] (model) {Model\\training};
+    \node[stage, right=of model] (eval) {Evaluation};
+    \draw[arrow] (data) -- (prep);
+    \draw[arrow] (prep) -- (model);
+    \draw[arrow] (model) -- (eval);
+    \draw[arrow, dashed] (eval.south) -- ++(0,-8mm)
+      -| node[pos=0.25, below, font=\footnotesize\sffamily] {adjust and repeat}
+      (model.south);
+  \end{tikzpicture}
+  \caption{Example of a methodology diagram drawn with TikZ: the stages of a
+    generic \acrshort{ml} pipeline.}
+  \label{fig:pipeline}
+\end{figure}
+
+% PT: \cref{fig:...} escreve "Figure 3.1" com ligação.
+% EN: \cref{fig:...} writes "Figure 3.1" with a link.
+\Cref{fig:pipeline} summarises the methodology. Data are collected and
+pre-processed, a model is trained, and the model is evaluated; the dashed
+arrow shows that training is repeated with new settings until the
+evaluation criteria are met. Diagrams drawn with TikZ use the same fonts as
+the text and scale without loss of quality.
+
+\subsection{Model}
+\label{sec:method:model}
+
+% PT: Equação numerada: o número aparece à direita, por capítulo (3.1).
+%     Refira-a com \cref{eq:...} ou \eqref{eq:...}.
+% EN: Numbered equation: the number appears on the right, per chapter
+%     (3.1). Refer to it with \cref{eq:...} or \eqref{eq:...}.
+A \gls{cnn} classifier is trained by minimising the cross-entropy loss over
+the $N$ training examples and $C$ classes, given in \cref{eq:loss}:
+\begin{equation}
+  \mathcal{L}(\theta) = -\frac{1}{N} \sum_{i=1}^{N} \sum_{c=1}^{C}
+  y_{i,c} \log \hat{y}_{i,c}(\theta),
+  \label{eq:loss}
+\end{equation}
+where $\theta$ are the model parameters, $y_{i,c}$ is $1$ if example $i$
+belongs to class $c$ and $0$ otherwise, and $\hat{y}_{i,c}(\theta)$ is the
+probability predicted by the model.
+
+\subsection{Experimental Setup}
+\label{sec:method:setup}
+
+% PT: siunitx: \num{...} para números e \qty{número}{unidade} para
+%     quantidades (o antigo \SI{...}{...} continua a funcionar).
+% EN: siunitx: \num{...} for numbers and \qty{number}{unit} for quantities
+%     (the older \SI{...}{...} still works).
+The model was trained on \num{50000} images for \num{30} epochs, with a
+learning rate of \num{1e-3} and a batch size of \num{64}. The experiments ran
+on a workstation with a \qty{3.2}{\giga\hertz} processor, \qty{32}{\giga\byte}
+of memory and a graphics card with \qty{12}{\giga\byte} of memory. The setup
+must allow the evaluation in \cref{sec:results:en} to be reproduced.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em português
+% EN: Portuguese example
+% ---------------------------------------------------------------------
+\section{Exemplo em português}
+\label{sec:method:pt}
+
+\begin{otherlanguage}{portuguese}
+
+% PT: Referências em português: nome à mão + \ref; \eqref põe parênteses.
+% EN: References in Portuguese: name by hand + \ref; \eqref adds parentheses.
+A Figura~\ref{fig:pipeline} resume as etapas da metodologia, descritas na
+Secção~\ref{sec:method:overview}. O modelo é treinado minimizando a função
+de perda da Equação~\eqref{eq:loss}. Na metodologia, descreva o que foi feito
+com detalhe suficiente para que outra pessoa possa repetir o trabalho:
+dados, métodos, ferramentas e parâmetros.
+
+\end{otherlanguage}

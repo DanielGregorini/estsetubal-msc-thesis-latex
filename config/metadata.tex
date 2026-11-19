@@ -1,0 +1,152 @@
+% =====================================================================
+% config/metadata.tex
+% PT: Dados da dissertação. É aqui que preenche o título, o seu nome, o
+%     curso, os orientadores, o júri e as datas. A capa, a folha do júri e
+%     as propriedades do PDF são geradas a partir destes valores.
+%     Substitua apenas o texto entre as chavetas finais { }.
+% EN: Dissertation data. This is where you fill in the title, your name,
+%     the programme, the supervisors, the jury and the dates. The cover,
+%     the jury page and the PDF properties are generated from these values.
+%     Replace only the text inside the last pair of braces { }.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Trabalho / Work
+% ---------------------------------------------------------------------
+% PT: Título da dissertação. Na capa é escrito em maiúsculas.
+%     Ex.: Deteção de Anomalias em Redes Industriais com Aprendizagem Automática
+% EN: Dissertation title. It is printed in capitals on the cover.
+%     E.g.: Anomaly Detection in Industrial Networks with Machine Learning
+\newcommand{\thesistitle}{Título da Dissertação}
+
+% PT: Subtítulo opcional. Se não estiver vazio, aparece na capa e na folha
+%     do júri a seguir ao título, separado por dois pontos. Deixe {} vazio
+%     se não tiver subtítulo.
+%     Ex.: Um Estudo de Caso no Setor Automóvel
+% EN: Optional subtitle. If not empty, it is printed on the cover and the
+%     jury page after the title, separated by a colon. Leave {} empty if
+%     there is no subtitle.
+%     E.g.: A Case Study in the Automotive Sector
+\newcommand{\thesissubtitle}{}
+
+% PT: Palavras-chave para as propriedades do PDF (separadas por vírgulas).
+%     As palavras-chave visíveis estão em abstract.tex e resumo.tex.
+%     Ex.: Machine Learning, Anomaly Detection, Industrial Networks
+% EN: Keywords for the PDF properties (comma-separated). The visible
+%     keywords are in abstract.tex and resumo.tex.
+%     E.g.: Machine Learning, Anomaly Detection, Industrial Networks
+\newcommand{\thesiskeywords}{Palavra-chave 1, Palavra-chave 2, Palavra-chave 3}
+
+% ---------------------------------------------------------------------
+% Aluno e curso / Student and programme
+% ---------------------------------------------------------------------
+% PT: Nome completo do aluno, como deve aparecer na capa (em maiúsculas).
+%     Ex.: Ana Exemplo Ferreira
+% EN: Student's full name, as it should appear on the cover (in capitals).
+%     E.g.: Ana Exemplo Ferreira
+\newcommand{\authorname}{Nome Completo do Aluno}
+
+% PT: Nome completo do mestrado (usado nas propriedades do PDF).
+%     Ex.: Mestrado em Engenharia de Software
+% EN: Full name of the master's programme (used in the PDF properties).
+%     E.g.: Mestrado em Engenharia de Software
+\newcommand{\coursename}{Mestrado em Nome do Curso}
+
+% PT: Primeira linha do bloco do grau na capa. Use o tipo de trabalho que
+%     se aplica ao seu caso (Dissertação, Projeto ou Estágio).
+%     Ex.: Relatório de Dissertação do Mestrado em
+% EN: First line of the degree block on the cover. Use the type of work
+%     that applies to you (Dissertação, Projeto or Estágio).
+%     E.g.: Relatório de Dissertação do Mestrado em
+\newcommand{\coverdegree}{Relatório de Dissertação do Mestrado em}
+
+% PT: Segunda linha do bloco do grau na capa: a área do mestrado.
+%     Ex.: Engenharia de Software
+% EN: Second line of the degree block on the cover: the programme field.
+%     E.g.: Engenharia de Software
+\newcommand{\coursefield}{Nome do Curso}
+
+% PT: Instituição e escola (usadas nas propriedades do PDF).
+% EN: University and school (used in the PDF properties).
+\newcommand{\institutionname}{Universidade Politécnica de Setúbal}
+\newcommand{\schoolname}{Escola Superior de Tecnologia de Setúbal}
+
+% PT: Cidade (disponível para uso no texto, ex.: nos agradecimentos).
+% EN: City (available for use in the text, e.g. in the acknowledgements).
+\newcommand{\cityname}{Setúbal}
+
+% ---------------------------------------------------------------------
+% Orientação / Supervision
+% ---------------------------------------------------------------------
+% PT: Orientador, com grau académico.
+%     Ex.: Prof. Doutor João Exemplo Almeida
+% EN: Supervisor, with academic title.
+%     E.g.: Prof. Doutor João Exemplo Almeida
+\newcommand{\supervisorname}{Prof. Doutor Nome do Orientador}
+
+% PT: Coorientador (OPCIONAL). Se deixar {} vazio, a capa não mostra o
+%     bloco COORIENTADOR.
+%     Ex.: Prof.ª Doutora Maria Exemplo Sousa   ou   {} (sem coorientador)
+% EN: Co-supervisor (OPTIONAL). If you leave {} empty, the cover does not
+%     show the COORIENTADOR block.
+%     E.g.: Prof.ª Doutora Maria Exemplo Sousa   or   {} (no co-supervisor)
+\newcommand{\cosupervisorname}{Prof. Doutor Nome do Coorientador}
+
+% PT: Rótulos da capa e da folha do júri. Mude para a forma feminina
+%     (ORIENTADORA, COORIENTADORA, Orientadora) quando se aplicar.
+% EN: Labels on the cover and the jury page. Change them to the feminine
+%     form (ORIENTADORA, COORIENTADORA, Orientadora) when it applies.
+\newcommand{\supervisorlabel}{ORIENTADOR}
+\newcommand{\cosupervisorlabel}{COORIENTADOR}
+\newcommand{\juryadvisorlabel}{Orientador}
+
+% ---------------------------------------------------------------------
+% Datas / Dates
+% ---------------------------------------------------------------------
+% PT: Mês (em minúsculas, em português) e ano de entrega.
+%     Ex.: novembro  /  2026
+% EN: Month (lowercase, in Portuguese) and year of submission.
+%     E.g.: novembro  /  2026
+\newcommand{\submissionmonth}{mês}
+\newcommand{\submissionyear}{AAAA}
+
+% PT: Mês e ano da prova pública (defesa). Aparecem no fundo da capa e da
+%     folha do júri. Por omissão são iguais aos da entrega; depois da
+%     defesa, substitua por valores concretos.
+%     Ex.: \newcommand{\defencemonth}{janeiro}  /  \newcommand{\defenceyear}{2027}
+% EN: Month and year of the public defence. They are printed at the bottom
+%     of the cover and the jury page. By default they match the submission
+%     date; after the defence, replace them with the actual values.
+%     E.g.: \newcommand{\defencemonth}{janeiro}  /  \newcommand{\defenceyear}{2027}
+\newcommand{\defencemonth}{\submissionmonth}
+\newcommand{\defenceyear}{\submissionyear}
+
+% ---------------------------------------------------------------------
+% Júri (folha do júri) / Jury (jury page)
+% ---------------------------------------------------------------------
+% PT: Formato de cada membro: Grau Nome, Instituição.
+% EN: Format of each member: Title Name, Institution.
+
+% PT: Presidente do júri.
+%     Ex.: Prof. Doutor Rui Exemplo Lopes, Universidade Politécnica de Setúbal
+% EN: Jury president.
+%     E.g.: Prof. Doutor Rui Exemplo Lopes, Universidade Politécnica de Setúbal
+\newcommand{\jurypresident}{Prof. Doutor Nome do Presidente, Universidade Politécnica de Setúbal}
+
+% PT: Orientador no júri (normalmente igual a \supervisorname + instituição).
+% EN: Supervisor on the jury (usually \supervisorname + institution).
+\newcommand{\juryadvisor}{Prof. Doutor Nome do Orientador, Universidade Politécnica de Setúbal}
+
+% PT: Vogal (arguente). É obrigatório pelo menos um.
+%     Ex.: Prof.ª Doutora Carla Exemplo Pinto, Universidade de Lisboa
+% EN: Examiner ("vogal"). At least one is required.
+%     E.g.: Prof.ª Doutora Carla Exemplo Pinto, Universidade de Lisboa
+\newcommand{\juryvogal}{Prof. Doutor Nome do Vogal, Instituição}
+
+% PT: Segundo vogal (OPCIONAL). Deixe {} vazio se o júri tiver só um
+%     vogal; preencha-o se tiver dois. Cada vogal ocupa uma linha.
+%     Ex.: Prof. Doutor Tiago Exemplo Nunes, Universidade de Évora
+% EN: Second examiner (OPTIONAL). Leave {} empty if the jury has a single
+%     examiner; fill it in if there are two. Each examiner takes one line.
+%     E.g.: Prof. Doutor Tiago Exemplo Nunes, Universidade de Évora
+\newcommand{\jurysecondvogal}{}

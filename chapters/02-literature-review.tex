@@ -1,0 +1,78 @@
+% =====================================================================
+% chapters/02-literature-review.tex
+% PT: Capítulo 2 -- Revisão da literatura. Exemplo de: citações com
+%     \cite e \textcite, várias fontes numa citação, citação com página,
+%     fonte online e acrónimos no plural (\glspl).
+% EN: Chapter 2 -- Literature review. Shows: citations with \cite and
+%     \textcite, several sources in one citation, citation with a page
+%     number, an online source and plural acronyms (\glspl).
+% =====================================================================
+\chapter{Literature Review}
+\label{chap:review}
+
+% PT: Parágrafo de abertura do capítulo.
+% EN: Chapter opening paragraph.
+This chapter shows how to cite sources. In a real dissertation, the
+literature review presents the concepts the work builds on, summarises and
+compares the related work, and ends by identifying the gap the dissertation
+fills. Every source cited here must have an entry in
+\texttt{bibliography/references.bib}; the reference list at the end of the
+document is generated automatically and only contains the sources that are
+cited.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em inglês
+% EN: English example
+% ---------------------------------------------------------------------
+\section{English example}
+\label{sec:review:en}
+
+\subsection{Citing Sources}
+\label{sec:review:citing}
+
+% PT: \cite{chave} dá "[1]"; \textcite{chave} dá "Autor et al. [1]".
+%     A chave é o identificador da entrada no ficheiro .bib.
+% EN: \cite{key} gives "[1]"; \textcite{key} gives "Author et al. [1]".
+%     The key is the identifier of the entry in the .bib file.
+Deep learning methods learn representations of data with several levels of
+abstraction \cite{LeCun2015}. \textcite{Goodfellow2016} give a comprehensive
+introduction to the field, and \textcite{He2016} showed that residual
+connections make it possible to train much deeper \glspl{cnn}.
+
+% PT: Várias fontes de uma vez e citação de uma página concreta.
+% EN: Several sources at once and citation of a specific page.
+Several sources can be cited together \cite{LeCun2015,He2016}, and a
+specific page can be added in square brackets \cite[p.~164]{Goodfellow2016}.
+Online sources, such as software documentation, are cited in the same way
+\cite{CTANbiblatexieee}.
+
+\subsection{Summary of Related Work}
+\label{sec:review:summary}
+
+A literature review should do more than list papers. Group the works by
+approach, compare them on the criteria that matter for your problem, and
+close the chapter by stating clearly what is still missing. A comparison
+table, like the one in \cref{tab:results}, is often a good way to summarise
+the related work.
+
+% ---------------------------------------------------------------------
+% PT: Exemplo em português
+% EN: Portuguese example
+% ---------------------------------------------------------------------
+\section{Exemplo em português}
+\label{sec:review:pt}
+
+\begin{otherlanguage}{portuguese}
+
+Os métodos de aprendizagem profunda aprendem representações dos dados com
+vários níveis de abstração \cite{LeCun2015}. Segundo
+\textcite{Goodfellow2016}, estas representações são aprendidas diretamente a
+partir dos dados, sem regras definidas à mão. \textcite{He2016} mostraram que
+as ligações residuais permitem treinar \glspl{cnn} com muito mais camadas.
+
+Para acrescentar uma nova fonte, crie uma entrada no ficheiro
+\texttt{references.bib} com uma chave única (por exemplo,
+\texttt{Silva2024}) e cite-a no texto com \texttt{\textbackslash
+cite\{Silva2024\}}.
+
+\end{otherlanguage}

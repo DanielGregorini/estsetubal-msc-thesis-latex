@@ -1,0 +1,74 @@
+% =====================================================================
+% frontmatter/folha-rosto.tex
+% PT: Folha do júri (página 2 do modelo ESTSetúbal/UNIPS). Reproduz a
+%     segunda página de TrabalhoUNIPS_TecnologiaSetubal_Mestrado_definitiva.docx.
+%     NÃO precisa de editar este ficheiro: o texto vem de
+%     config/metadata.tex. NÃO altere as posições \put nem as medidas em
+%     bp. O sistema de coordenadas está explicado em frontmatter/cover.tex.
+% EN: Jury page (page 2 of the ESTSetúbal/UNIPS model). Reproduces the
+%     second page of TrabalhoUNIPS_TecnologiaSetubal_Mestrado_definitiva.docx.
+%     You do NOT need to edit this file: the text comes from
+%     config/metadata.tex. Do NOT change the \put positions or the bp
+%     measurements. The coordinate system is explained in
+%     frontmatter/cover.tex.
+%
+% PT: Medidas das caixas do Word (bp, a partir do canto superior esquerdo)
+% EN: Word text-box measurements (bp, from the top-left corner)
+%   autor / author   x = 85.05,  y = 263.4, largura/width 160.0, 16 pt, à direita/right-aligned
+%   título / title   x = 249.95, y = 263.0, largura/width 290.1, 16 pt negrito/bold
+%   linha / line     centro/centre x = 249.95, y = 263.5 -> 773.7, 3.75 pt, #CAF4FF
+%   júri / jury      x = 249.95, y = 501.0, largura/width 275.1, 11 pt, entrelinha/leading 1.15
+%   data / date      x = 250.15, y = 735.5, 10 pt
+%
+% PT: Nesta página o título pode ter até 12 linhas (a 13.ª encosta ao
+%     bloco do júri, em y = 514.0); o limite prático é o da capa (10
+%     linhas, ver frontmatter/cover.tex).
+% EN: On this page the title can take up to 12 lines (a 13th line touches
+%     the jury block, at y = 514.0); the practical limit is the cover's
+%     (10 lines, see frontmatter/cover.tex).
+% =====================================================================
+\begin{titlepage}
+\AddToHookNext{shipout/foreground}{%
+  \setlength{\unitlength}{1bp}%
+  \linespread{1}\fontfamily{phv}\fontseries{m}\fontshape{n}\selectfont
+  \hyphenpenalty=10000 \exhyphenpenalty=10000
+  % -------------------------------------------------------------------
+  % PT: Autor: coluna da esquerda, 16 pt regular, maiúsculas, alinhado à direita.
+  % EN: Author: left column, 16 pt regular, capitals, right-aligned.
+  \put(92.25,-279.0){\parbox[t]{145.6bp}{\raggedleft\fontsize{16bp}{18.4bp}\selectfont
+    \MakeUppercase{\authorname}}}%
+  % -------------------------------------------------------------------
+  % PT: Título (e subtítulo opcional): coluna da direita, 16 pt negrito, maiúsculas.
+  % EN: Title (and optional subtitle): right column, 16 pt bold, capitals.
+  \put(257.15,-278.6){\parbox[t]{275.7bp}{\raggedright\fontsize{16bp}{18.4bp}\selectfont\bfseries
+    \MakeUppercase{\thesistitle}\ifdefempty{\thesissubtitle}{}{\MakeUppercase{: \thesissubtitle}}}}%
+  % -------------------------------------------------------------------
+  % PT: Linha azul vertical #CAF4FF (no Word: linha de 510.2 pt rodada 270 graus).
+  % EN: Vertical blue line #CAF4FF (in Word: 510.2 pt line rotated 270 degrees).
+  \put(248.075,-773.7){\textcolor[HTML]{CAF4FF}{\rule{3.75bp}{510.2bp}}}%
+  % -------------------------------------------------------------------
+  % PT: Júri, 11 pt, entrelinha 1,15. Uma linha por membro: Presidente,
+  %     Orientador e um ou dois vogais. A linha do segundo vogal só aparece
+  %     se \jurysecondvogal não estiver vazio (ver config/metadata.tex).
+  % EN: Jury, 11 pt, 1.15 line spacing. One line per member: president,
+  %     supervisor and one or two examiners ("vogais"). The second
+  %     examiner's line only appears if \jurysecondvogal is not empty
+  %     (see config/metadata.tex).
+  \put(257.15,-514.0){\parbox[t]{260.7bp}{\raggedright\fontsize{11bp}{14.55bp}\selectfont
+    \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}%
+    {\bfseries JÚRI\par}
+    \mbox{}\par
+    Presidente: \jurypresident\par
+    \juryadvisorlabel: \juryadvisor\par
+    Vogal: \juryvogal\par
+    \ifdefempty{\jurysecondvogal}{}{Vogal: \jurysecondvogal\par}}}%
+  % -------------------------------------------------------------------
+  % PT: Data da realização da prova (mês e ano), 10 pt.
+  % EN: Date of the public defence (month and year), 10 pt.
+  \put(257.35,-747.4){\parbox[t]{230.5bp}{\raggedright\fontsize{10bp}{13.2bp}\selectfont
+    \defencemonth\ de \defenceyear}}%
+}
+% PT: Página vazia: o conteúdo é todo desenhado pelo bloco acima.
+% EN: Empty page: all content is drawn by the block above.
+\null
+\end{titlepage}
